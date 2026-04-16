@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,700;0,9..40,800&family=M+PLUS+1p:wght@400;700;800&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="description" content="PokeDiary - ポケモンカードの対戦記録アプリ サポートページ">
+  <title>PokeDiary - Support</title>
+  <style>
+    :root {
+      --bg: #121212;
+      --surface: #181818;
+      --surface-2: #282828;
+      --surface-3: #383838;
+      --accent: #E8344A;
+      --accent-dark: #C9283E;
+      --text: #FFFFFF;
+      --text-muted: #B3B3B3;
+      --text-faint: #555555;
+      --border: rgba(255,255,255,0.06);
+      --accent-glow: rgba(232,52,74,0.25);
+      --accent-shadow: rgba(232,52,74,0.4);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-pill: 28px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'M PLUS 1p', 'DM Sans', 'Noto Sans SC', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: rgba(18,18,18,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: -0.3px;
+    }
+    .logo-link img { width: 28px; height: 28px; border-radius: 7px; object-fit: cover; }
+    nav { display: flex; gap: 4px; align-items: center; }
+    nav a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      padding: 5px 10px;
+      border-radius: var(--radius-sm);
+      transition: background 0.15s, color 0.15s;
+    }
+    nav a:hover { background: var(--surface-2); color: var(--text); }
+
+    /* ===== LANG SWITCHER ===== */
+    .lang-switcher {
+      display: flex;
+      gap: 2px;
+      background: var(--surface-2);
+      border-radius: var(--radius-sm);
+      padding: 3px;
+      margin-left: 8px;
+    }
+    .lang-btn {
+      border: none;
+      background: transparent;
+      padding: 3px 8px;
+      border-radius: 5px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: all 0.15s;
+    }
+    .lang-btn.active { background: var(--surface-3); color: var(--text); }
+
+    /* ===== HERO ===== */
+    .hero {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 56px 24px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: -80px;
+      width: 360px; height: 360px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      position: relative;
+    }
+    .hero-text { flex: 1; }
+    .hero-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .hero h1 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+    .hero-tagline {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 28px;
+      max-width: 340px;
+    }
+    .badge-link {
+      display: inline-block;
+      text-decoration: none;
+      transition: transform 0.2s, filter 0.2s;
+    }
+    .badge-link:hover { transform: scale(1.05); }
+    .badge-link svg {
+      height: 52px;
+      width: auto;
+      display: block;
+      filter: drop-shadow(0 4px 14px var(--accent-shadow));
+    }
+    .hero-phone {
+      flex: 0 0 110px;
+      display: flex;
+      justify-content: center;
+    }
+    .phone-frame {
+      width: 88px;
+      height: 168px;
+      background: #1a1a1a;
+      border-radius: 20px;
+      border: 2px solid #333;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.04);
+    }
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(160deg, var(--accent) 0%, #7a1a26 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+    }
+    .phone-notch {
+      position: absolute;
+      top: 8px; left: 50%;
+      transform: translateX(-50%);
+      width: 28px; height: 6px;
+      background: #333;
+      border-radius: 3px;
+      z-index: 1;
+    }
+
+    /* ===== SECTIONS ===== */
+    .section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .section-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      color: var(--text);
+      white-space: nowrap;
+    }
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(232,52,74,0.4) 0%, transparent 100%);
+    }
+
+    /* ===== FEATURES ALBUM GRID ===== */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .feature-tile {
+      aspect-ratio: 1;
+      border-radius: var(--radius-md);
+      background: var(--surface-2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.15s, transform 0.15s;
+      cursor: default;
+    }
+    .feature-tile:hover { background: var(--surface-3); transform: scale(1.03); }
+    .feature-tile.highlight {
+      background: var(--accent);
+      box-shadow: 0 4px 20px var(--accent-shadow);
+    }
+    .feature-tile.highlight:hover { background: var(--accent-dark); }
+    .feature-icon { font-size: 28px; }
+    .feature-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text);
+      text-align: center;
+      line-height: 1.3;
+      padding: 0 6px;
+    }
+
+    /* ===== FAQ ===== */
+    .faq-list { display: flex; flex-direction: column; gap: 10px; }
+    details {
+      background: var(--surface);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border-left: 3px solid transparent;
+      transition: border-color 0.15s;
+    }
+    details:hover { border-left-color: var(--accent); }
+    details[open] { border-left-color: var(--accent); }
+    summary {
+      padding: 16px 20px;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+      gap: 12px;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: '+';
+      font-size: 20px;
+      color: var(--accent);
+      font-weight: 300;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    details[open] summary::after { transform: rotate(45deg); }
+    .faq-answer {
+      padding: 14px 20px 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ===== CONTACT ===== */
+    .contact-card {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      text-align: center;
+    }
+    .contact-card p {
+      color: var(--text-muted);
+      font-size: 13px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      border: 1.5px solid var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      padding: 11px 24px;
+      border-radius: var(--radius-pill);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .contact-link:hover { background: var(--accent); color: var(--text); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0a0a0a;
+      color: var(--text-faint);
+      text-align: center;
+      padding: 32px 24px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      line-height: 1.8;
+      border-top: 1px solid var(--border);
+    }
+    .footer-logo {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .footer-links { margin-bottom: 12px; }
+    footer a { color: var(--text-muted); text-decoration: none; margin: 0 10px; transition: color 0.15s; }
+    footer a:hover { color: var(--text); }
+    .footer-notice { font-size: 11px; color: var(--text-faint); max-width: 600px; margin: 12px auto 0; }
+
+    /* ===== DIVIDER ===== */
+    .section-divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    /* ===== LANGUAGE ===== */
+    [data-lang] { display: none; }
+    [data-lang].active { display: block; }
+    .feature-label [data-lang].active { display: inline; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 600px) {
+      .header-inner { padding: 0 16px; }
+      nav a { display: none; }
+      .hero { padding: 40px 20px 48px; }
+      .hero-inner { flex-direction: column; gap: 20px; }
+      .hero-phone { flex: 0 0 80px; }
+      .phone-frame { width: 66px; height: 126px; }
+      .phone-screen { font-size: 30px; }
+      .section { padding: 36px 16px; }
+    }
+    @media (max-width: 479px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo-link">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABCGVYSWZNTQAqAAAACAAHARIAAwAAAAEAAQAAARoABQAAAAEAAABiARsABQAAAAEAAABqASgAAwAAAAEAAgAAATEAAgAAADkAAAByATsAAgAAAA0AAACsh2kABAAAAAEAAAC6AAAAAAAAAGAAAAABAAAAYAAAAAFDYW52YSBkb2M9REFIR2RFOXBZamcgdXNlcj1VQUY2YkczVGxvWSBicmFuZD1CQUY2YktreWJ4bwAA44Oe44Kk44Kt44O8AAAABpAAAAcAAAAEMDIxMJEBAAcAAAAEAQIDAKAAAAcAAAAEMDEwMKABAAMAAAABAAEAAKACAAQAAAABAAAAyKADAAQAAAABAAAAyAAAAADOTm4RAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAGKmlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNi4wLjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczpleGlmPSJodHRwOi8vbnMuYWRvYmUuY29tL2V4aWYvMS4wLyIKICAgICAgICAgICAgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIgogICAgICAgICAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyIKICAgICAgICAgICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIj4KICAgICAgICAgPGV4aWY6Q29sb3JTcGFjZT4xPC9leGlmOkNvbG9yU3BhY2U+CiAgICAgICAgIDxleGlmOlBpeGVsWERpbWVuc2lvbj4xMDI0PC9leGlmOlBpeGVsWERpbWVuc2lvbj4KICAgICAgICAgPGV4aWY6RXhpZlZlcnNpb24+MDIxMDwvZXhpZjpFeGlmVmVyc2lvbj4KICAgICAgICAgPGV4aWY6Rmxhc2hQaXhWZXJzaW9uPjAxMDA8L2V4aWY6Rmxhc2hQaXhWZXJzaW9uPgogICAgICAgICA8ZXhpZjpQaXhlbFlEaW1lbnNpb24+MTAyNDwvZXhpZjpQaXhlbFlEaW1lbnNpb24+CiAgICAgICAgIDxleGlmOkNvbXBvbmVudHNDb25maWd1cmF0aW9uPgogICAgICAgICAgICA8cmRmOlNlcT4KICAgICAgICAgICAgICAgPHJkZjpsaT4xPC9yZGY6bGk+CiAgICAgICAgICAgICAgIDxyZGY6bGk+MjwvcmRmOmxpPgogICAgICAgICAgICAgICA8cmRmOmxpPjM8L3JkZjpsaT4KICAgICAgICAgICAgICAgPHJkZjpsaT4wPC9yZGY6bGk+CiAgICAgICAgICAgIDwvcmRmOlNlcT4KICAgICAgICAgPC9leGlmOkNvbXBvbmVudHNDb25maWd1cmF0aW9uPgogICAgICAgICA8eG1wOkNyZWF0b3JUb29sPkNhbnZhIGRvYz1EQUhHZEU5cFlqZyB1c2VyPVVBRjZiRzNUbG9ZIGJyYW5kPUJBRjZiS2t5YnhvPC94bXA6Q3JlYXRvclRvb2w+CiAgICAgICAgIDx0aWZmOlJlc29sdXRpb25Vbml0PjI8L3RpZmY6UmVzb2x1dGlvblVuaXQ+CiAgICAgICAgIDx0aWZmOk9yaWVudGF0aW9uPjE8L3RpZmY6T3JpZW50YXRpb24+CiAgICAgICAgIDx0aWZmOlhSZXNvbHV0aW9uPjk2PC90aWZmOlhSZXNvbHV0aW9uPgogICAgICAgICA8dGlmZjpZUmVzb2x1dGlvbj45NjwvdGlmZjpZUmVzb2x1dGlvbj4KICAgICAgICAgPGRjOnRpdGxlPgogICAgICAgICAgICA8cmRmOkFsdD4KICAgICAgICAgICAgICAgPHJkZjpsaSB4bWw6bGFuZz0ieC1kZWZhdWx0Ij5QIC0gMTwvcmRmOmxpPgogICAgICAgICAgICA8L3JkZjpBbHQ+CiAgICAgICAgIDwvZGM6dGl0bGU+CiAgICAgICAgIDxk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" alt="PokeDiary">
+      PokeDiary
+    </a>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <nav>
+        <a href="privacy.html" data-nav-privacy>プライバシーポリシー</a>
+        <a href="terms.html" data-nav-terms>利用規約</a>
+      </nav>
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLang('ja')">JA</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('zh')">ZH</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow">iOS App</div>
+      <h1>PokeDiary</h1>
+      <div style="display:none"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABCGVYSWZNTQAqAAAACAAHARIAAwAAAAEAAQAAARoABQAAAAEAAABiARsABQAAAAEAAABqASgAAwAAAAEAAgAAATEAAgAAADkAAAByATsAAgAAAA0AAACsh2kABAAAAAEAAAC6AAAAAAAAAGAAAAABAAAAYAAAAAFDYW52YSBkb2M9REFIR2RFOXBZamcgdXNlcj1VQUY2YkczVGxvWSBicmFuZD1CQUY2YktreWJ4bwAA44Oe44Kk44Kt44O8AAAABpAAAAcAAAAEMDIxMJEBAAcAAAAEAQIDAKAAAAcAAAAEMDEwMKABAAMAAAABAAEAAKACAAQAAAABAAAAyKADAAQAAAABAAAAyAAAAADOTm4RAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAGKmlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNi4wLjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczpleGlmPSJodHRwOi8vbnMuYWRvYmUuY29tL2V4aWYvMS4wLyIKICAgICAgICAgICAgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIgogICAgICAgICAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyIKICAgICAgICAgICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIj4KICAgICAgICAgPGV4aWY6Q29sb3JTcGFjZT4xPC9leGlmOkNvbG9yU3BhY2U+CiAgICAgICAgIDxleGlmOlBpeGVsWERpbWVuc2lvbj4xMDI0PC9leGlmOlBpeGVsWERpbWVuc2lvbj4KICAgICAgICAgPGV4aWY6RXhpZlZlcnNpb24+MDIxMDwvZXhpZjpFeGlmVmVyc2lvbj4KICAgICAgICAgPGV4aWY6Rmxhc2hQaXhWZXJzaW9uPjAxMDA8L2V4aWY6Rmxhc2hQaXhWZXJzaW9uPgogICAgICAgICA8ZXhpZjpQaXhlbFlEaW1lbnNpb24+MTAyNDwvZXhpZjpQaXhlbFlEaW1lbnNpb24+CiAgICAgICAgIDxleGlmOkNvbXBvbmVudHNDb25maWd1cmF0aW9uPgogICAgICAgICAgICA8cmRmOlNlcT4KICAgICAgICAgICAgICAgPHJkZjpsaT4xPC9yZGY6bGk+CiAgICAgICAgICAgICAgIDxyZGY6bGk+MjwvcmRmOmxpPgogICAgICAgICAgICAgICA8cmRmOmxpPjM8L3JkZjpsaT4KICAgICAgICAgICAgICAgPHJkZjpsaT4wPC9yZGY6bGk+CiAgICAgICAgICAgIDwvcmRmOlNlcT4KICAgICAgICAgPC9leGlmOkNvbXBvbmVudHNDb25maWd1cmF0aW9uPgogICAgICAgICA8eG1wOkNyZWF0b3JUb29sPkNhbnZhIGRvYz1EQUhHZEU5cFlqZyB1c2VyPVVBRjZiRzNUbG9ZIGJyYW5kPUJBRjZiS2t5YnhvPC94bXA6Q3JlYXRvclRvb2w+CiAgICAgICAgIDx0aWZmOlJlc29sdXRpb25Vbml0PjI8L3RpZmY6UmVzb2x1dGlvblVuaXQ+CiAgICAgICAgIDx0aWZmOk9yaWVudGF0aW9uPjE8L3RpZmY6T3JpZW50YXRpb24+CiAgICAgICAgIDx0aWZmOlhSZXNvbHV0aW9uPjk2PC90aWZmOlhSZXNvbHV0aW9uPgogICAgICAgICA8dGlmZjpZUmVzb2x1dGlvbj45NjwvdGlmZjpZUmVzb2x1dGlvbj4KICAgICAgICAgPGRjOnRpdGxlPgogICAgICAgICAgICA8cmRmOkFsdD4KICAgICAgICAgICAgICAgPHJkZjpsaSB4bWw6bGFuZz0ieC1kZWZhdWx0Ij5QIC0gMTwvcmRmOmxpPgogICAgICAgICAgICA8L3JkZjpBbHQ+CiAgICAgICAgIDwvZGM6dGl0bGU+CiAgICAgICAgIDxk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" alt="PokeDiary"></div></div>
+
+  <p class="hero-tagline" data-lang="ja active">
+    ポケモンカードの対戦記録をかんたん管理
+  </p>
+  <p class="hero-tagline" data-lang="en">
+    Your Pokémon TCG Battle Diary
+  </p>
+  <p class="hero-tagline" data-lang="zh">
+    宝可梦卡牌对战记录管理应用
+  </p>
+
+  <!-- App Store URL を入力してください / Replace # with your App Store URL -->
+  <a href="#" class="badge-link" data-lang="ja active" id="appstore-link">
+    <svg id="JP" xmlns="http://www.w3.org/2000/svg" width="108.85157" height="40" viewBox="0 0 108.85157 40"><title>Download on the App Store</title><g><g><path d="M99.32227,0H9.53468c-.3667,0-.729,0-1.09473.002-.30615.002-.60986.00781-.91895.0127A13.21476,13.21476,0,0,0,5.5171.19141a6.66509,6.66509,0,0,0-1.90088.627A6.43779,6.43779,0,0,0,1.99757,1.99707,6.25844,6.25844,0,0,0,.81935,3.61816a6.60119,6.60119,0,0,0-.625,1.90332,12.993,12.993,0,0,0-.1792,2.002C.00587,7.83008.00489,8.1377,0,8.44434V31.5586c.00489.3105.00587.6113.01515.9219a12.99232,12.99232,0,0,0,.1792,2.0019,6.58756,6.58756,0,0,0,.625,1.9043A6.20778,6.20778,0,0,0,1.99757,38.001a6.27445,6.27445,0,0,0,1.61865,1.1787,6.70082,6.70082,0,0,0,1.90088.6308,13.45514,13.45514,0,0,0,2.0039.1768c.30909.0068.6128.0107.91895.0107C8.80567,40,9.168,40,9.53468,40H99.32227c.3594,0,.7246,0,1.084-.002.3047,0,.6172-.0039.9219-.0107a13.279,13.279,0,0,0,2-.1768,6.80432,6.80432,0,0,0,1.9082-.6308,6.27742,6.27742,0,0,0,1.6172-1.1787,6.39482,6.39482,0,0,0,1.1816-1.6143,6.60413,6.60413,0,0,0,.6191-1.9043,13.50643,13.50643,0,0,0,.1856-2.0019c.0039-.3106.0039-.6114.0039-.9219.0078-.3633.0078-.7246.0078-1.0938V9.53613c0-.36621,0-.72949-.0078-1.09179,0-.30664,0-.61426-.0039-.9209a13.5071,13.5071,0,0,0-.1856-2.002,6.6177,6.6177,0,0,0-.6191-1.90332,6.46619,6.46619,0,0,0-2.7988-2.7998,6.76754,6.76754,0,0,0-1.9082-.627,13.04394,13.04394,0,0,0-2-.17676c-.3047-.00488-.6172-.01074-.9219-.01269C100.04687,0,99.68167,0,99.32227,0Z" style="fill:#a6a6a6"/><path d="M8.44483,39.125c-.30468,0-.602-.0039-.90429-.0107a12.68714,12.68714,0,0,1-1.86914-.1631,5.88381,5.88381,0,0,1-1.65674-.5479,5.40573,5.40573,0,0,1-1.397-1.0166,5.32082,5.32082,0,0,1-1.02051-1.3965,5.72186,5.72186,0,0,1-.543-1.6572,12.41351,12.41351,0,0,1-.1665-1.875c-.00634-.2109-.01464-.9131-.01464-.9131V8.44434S.88185,7.75293.8877,7.5498a12.37039,12.37039,0,0,1,.16553-1.87207,5.7555,5.7555,0,0,1,.54346-1.6621A5.37349,5.37349,0,0,1,2.61183,2.61768,5.56543,5.56543,0,0,1,4.01417,1.59521a5.82309,5.82309,0,0,1,1.65332-.54394A12.58589,12.58589,0,0,1,7.543.88721L8.44532.875h91.956l.9131.0127a12.38493,12.38493,0,0,1,1.8584.16259,5.93833,5.93833,0,0,1,1.6709.54785,5.59374,5.59374,0,0,1,2.415,2.41993A5.76267,5.76267,0,0,1,107.794,5.667a12.995,12.995,0,0,1,.1738,1.88721c.0029.2832.0029.5874.0029.89014.0079.375.0079.73193.0079,1.09179V30.4648c0,.3633,0,.7178-.0079,1.0752,0,.3252,0,.6231-.0039.9297a12.73126,12.73126,0,0,1-.1709,1.8535,5.739,5.739,0,0,1-.54,1.67,5.48029,5.48029,0,0,1-1.0156,1.3857,5.4129,5.4129,0,0,1-1.3994,1.0225,5.86168,5.86168,0,0,1-1.668.5498,12.54218,12.54218,0,0,1-1.8692.1631c-.2929.0068-.5996.0107-.8974.0107l-1.084.002Z"/></g><g><path d="M41.16742,16.55462H37.11585l-.973,2.873H34.42678L38.26437,8.79837h1.783l3.83759,10.62922H42.13957Zm-3.632-1.32573H40.747l-1.58318-4.66261h-.0443Z" style="fill:#fff"/><path d="M52.1728,15.55322c0,2.40821-1.28895,3.95545-3.23407,3.95545a2.62719,2.62719,0,0,1-2.4383-1.35582h-.03678v3.83842H44.87294V11.678h1.53972V12.967h.02926a2.749,2.749,0,0,1,2.46756-1.37C50.87633,11.59694,52.1728,13.1517,52.1728,15.55322Zm-1.635,0c0-1.569-.81082-2.60046-2.04794-2.60046-1.21539,0-2.03289,1.05323-2.03289,2.60046,0,1.56145.8175,2.60715,2.03289,2.60715C49.727,18.16037,50.53779,17.1364,50.53779,15.55322Z" style="fill:#fff"/><path d="M60.70267,15.55322c0,2.40821-1.28937,3.95545-3.23449,3.95545a2.62719,2.62719,0,0,1-2.4383-1.35582H54.9931v3.83842H53.4024V11.678h1.53972V12.967h.02926a2.749,2.749,0,0,1,2.46756-1.37C59.40578,11.59694,60.70267,13.1517,60.70267,15.55322Zm-1.63543,0c0-1.569-.81082-2.60046-2.04794-2.60046-1.21539,0-2.03289,1.05323-2.03289,2.60046,0,1.56145.8175,2.60715,2.03289,2.60715C58.25643,18.16037,59.06725,17.1364,59.06725,15.55322Z" style="fill:#fff"/><path d="M66.3391,16.466c.11786,1.05406,1.14183,1.74618,2.54112,1.74618,1.34077,0,2.30539-.69212,2.30539-1.64253,0-.825-.58178-1.319-1.95933-1.65758l-1.37755-.33185c-1.95181-.47144-2.85792-1.38424-2.85792-2.86544,0-1.834,1.59823-3.09364,3.86684-3.09364,2.24688,0,3.7866,1.25969,3.83842,3.09364H71.09032c-.09613-1.06075-.973-1.701-2.2544-1.701s-2.15828.64782-2.15828,1.59071c0,.75147.56,1.19366,1.93008,1.53219l1.17109.28755c2.18085.51575,3.08612,1.39176,3.08612,2.94652,0,1.98859-1.58318,3.23407-4.10257,3.23407-2.35722,0-3.94876-1.21623-4.05158-3.13878Z" style="fill:#fff"/><path d="M76.29961,9.84407v1.834h1.47368v1.25969H76.29961V17.21c0,.6637.29507.973.94289.973a4.971,4.971,0,0,0,.52327-.03678v1.25217a4.36838,4.36838,0,0,1-.88354.07356c-1.569,0-2.18085-.5893-2.18085-2.09224V12.93771H73.5746V11.678h1.12678v-1.834Z" style="fill:#fff"/><path d="M78.6259,15.55322c0-2.4383,1.43607-3.97049,3.67542-3.97049,2.24688,0,3.67626,1.53219,3.67626,3.97049,0,2.445-1.42185,3.97049-3.67626,3.97049C80.04776,19.52372,78.6259,17.99821,78.6259,15.55322Zm5.73089,0c0-1.67262-.76651-2.65981-2.05546-2.65981s-2.05546.99471-2.05546,2.65981c0,1.67931.76651,2.659,2.05546,2.659S84.35679,17.23253,84.35679,15.55322Z" style="fill:#fff"/><path d="M87.2891,11.678h1.51715v1.319H88.843a1.84835,1.84835,0,0,1,1.864-1.40012,2.4533,2.4533,0,0,1,.545.05935v1.48789a2.22372,2.22372,0,0,0-.71469-.09613,1.6029,1.6029,0,0,0-1.65758,1.783v4.59658H87.2891Z" style="fill:#fff"/><path d="M98.5862,17.15145a3.11011,3.11011,0,0,1-3.33689,2.37227c-2.2544,0-3.65369-1.51046-3.65369-3.93372,0-2.43078,1.40681-4.00727,3.58682-4.00727,2.14407,0,3.49236,1.47284,3.49236,3.82254v.545H93.20138v.09613a2.01837,2.01837,0,0,0,2.08472,2.19506,1.75329,1.75329,0,0,0,1.78965-1.09Zm-5.3773-2.31292h3.87437a1.86367,1.86367,0,0,0-1.90082-1.96686A1.96188,1.96188,0,0,0,93.2089,14.83853Z" style="fill:#fff"/></g><g><path d="M36.43654,30.81152l.06592-.81934a3.13245,3.13245,0,0,0,.95068.15137c.292,0,.40479-.02832.54639-.22656a4.56512,4.56512,0,0,0,.43262-2.31543c0-.84766-.26318-1.09277-.93164-1.09277-.15088,0-.32031.00977-.50879.01953a13.72712,13.72712,0,0,1-1.76953,4.123l-.78174-.42383a11.0714,11.0714,0,0,0,1.64746-3.61523,13.67658,13.67658,0,0,0-1.53418.25488l-.16943-.8291c.57422-.10352,1.26123-.19727,1.90137-.25391a17.609,17.609,0,0,0,.292-1.89258l.92285.10352c-.085.57422-.18848,1.14941-.32031,1.71387h.36719c1.1958,0,1.77.59277,1.77,1.85449a5.83361,5.83361,0,0,1-.5459,2.7959,1.1565,1.1565,0,0,1-1.12988.60254A5.18145,5.18145,0,0,1,36.43654,30.81152Zm3.03125-5.07422.6875-.46191a5.29872,5.29872,0,0,1,1.60986,3.48438l-.90381.14063A4.39851,4.39851,0,0,0,39.46779,25.7373Z" style="fill:#fff"/><path d="M44.88674,30.94336l-.188-.84766c.23535.01953.5459.02832.73438.02832,1.86377,0,2.56982-.52637,2.56982-1.30859,0-.62109-.40479-.97852-1.30859-.97852a4.03864,4.03864,0,0,0-2.57959,1.26172l-.7251-.32031A5.5238,5.5238,0,0,1,44.19,25.248l.83789.27246a3.6874,3.6874,0,0,0-.71533,2.44824,4.81661,4.81661,0,0,1,2.57031-.876c1.26172,0,2.043.64941,2.043,1.7041,0,1.33691-1.05469,2.15625-3.58691,2.15625C45.21633,30.95313,45.03762,30.94336,44.88674,30.94336Zm-.87549-6.251.23535-.8291a25.88517,25.88517,0,0,1,3.7002.84766l-.22607.81934A21.14206,21.14206,0,0,0,44.01125,24.69238Z" style="fill:#fff"/><path d="M51.65236,30.29395a5.94767,5.94767,0,0,0,2.53223-1.63867,10.69472,10.69472,0,0,0-1.76025-1.18555l.51758-.64941a11.44509,11.44509,0,0,1,1.78857,1.12891,5.95376,5.95376,0,0,0,.92285-2.1748H53.25246a9.70214,9.70214,0,0,1-2.05225,2.36328l-.6875-.59277a8.92365,8.92365,0,0,0,2.61768-3.59668l.90381.2168c-.10352.26367-.207.53613-.32959.791h2.335l.66846.31055a7.141,7.141,0,0,1-4.50977,5.76172ZM55.625,23.72266l.52734-.25488a5.67722,5.67722,0,0,1,.66846,1.1582l-.59326.27344A5.13466,5.13466,0,0,0,55.625,23.72266Zm1.17676-.09473.53662-.25391a6.35614,6.35614,0,0,1,.6875,1.18652l-.59326.25391A5.1684,5.1684,0,0,0,56.80178,23.62793Z" style="fill:#fff"/><path d="M60.92141,30.99023l-.48-.7627a3.94382,3.94382,0,0,0,3.314-4.15137h-3.9541v1.89258h-.95117V25.27539H61.2134V23.8916h.95068v1.38379h1.76074l.86621.24512C64.67775,28.19434,63.78371,30.2373,60.92141,30.99023Z" style="fill:#fff"/><path d="M66.62258,25.3418l.52734-.77246a11.68341,11.68341,0,0,1,2.31543,1.40332l-.60254.80957A11.0534,11.0534,0,0,0,66.62258,25.3418Zm.17871,4.6416a7.31748,7.31748,0,0,0,5.43262-3.917l.62109.69727a7.96352,7.96352,0,0,1-5.69531,4.09473Z" style="fill:#fff"/><path d="M80.57082,30.43555H74.64895V24.833h5.92188Zm-4.98926-4.73633v3.87012h4.04785V25.69922Z" style="fill:#fff"/><path d="M89.04934,27.9209H82.39309v-.96h6.65625Z" style="fill:#fff"/><path d="M91.314,23.91992h.93164v2.41016a29.013,29.013,0,0,1,3.59668,1.79883L95.315,28.957a22.724,22.724,0,0,0-3.06934-1.64746v3.63379H91.314Zm2.21191.50879.55566-.26367a6.19409,6.19409,0,0,1,.66895,1.28027l-.6123.27344A5.5162,5.5162,0,0,0,93.5259,24.42871Zm1.07324-.40527.56543-.26367A6.10514,6.10514,0,0,1,95.87063,25.04l-.6123.27344A6.12723,6.12723,0,0,0,94.59914,24.02344Z" style="fill:#fff"/></g><g><g><path d="M24.76888,20.30068a4.94881,4.94881,0,0,1,2.35656-4.15206,5.06566,5.06566,0,0,0-3.99116-2.15768c-1.67924-.17626-3.30719,1.00483-4.1629,1.00483-.87227,0-2.18977-.98733-3.6085-.95814a5.31529,5.31529,0,0,0-4.47292,2.72787c-1.934,3.34842-.49141,8.26947,1.3612,10.97608.9269,1.32535,2.01018,2.8058,3.42763,2.7533,1.38706-.05753,1.9051-.88448,3.5794-.88448,1.65876,0,2.14479.88448,3.591.8511,1.48838-.02416,2.42613-1.33124,3.32051-2.66914a10.962,10.962,0,0,0,1.51842-3.09251A4.78205,4.78205,0,0,1,24.76888,20.30068Z" style="fill:#fff"/><path d="M22.03725,12.21089a4.87248,4.87248,0,0,0,1.11452-3.49062,4.95746,4.95746,0,0,0-3.20758,1.65961,4.63634,4.63634,0,0,0-1.14371,3.36139A4.09905,4.09905,0,0,0,22.03725,12.21089Z" style="fill:#fff"/></g></g></g></svg>
+  </a>
+  <a href="#" class="badge-link" data-lang="en">
+    <svg id="livetype" xmlns="http://www.w3.org/2000/svg" width="119.66407" height="40" viewBox="0 0 119.66407 40"><title>Download on the App Store</title><g><g><g><path d="M110.13477,0H9.53468c-.3667,0-.729,0-1.09473.002-.30615.002-.60986.00781-.91895.0127A13.21476,13.21476,0,0,0,5.5171.19141a6.66509,6.66509,0,0,0-1.90088.627A6.43779,6.43779,0,0,0,1.99757,1.99707,6.25844,6.25844,0,0,0,.81935,3.61816a6.60119,6.60119,0,0,0-.625,1.90332,12.993,12.993,0,0,0-.1792,2.002C.00587,7.83008.00489,8.1377,0,8.44434V31.5586c.00489.3105.00587.6113.01515.9219a12.99232,12.99232,0,0,0,.1792,2.0019,6.58756,6.58756,0,0,0,.625,1.9043A6.20778,6.20778,0,0,0,1.99757,38.001a6.27445,6.27445,0,0,0,1.61865,1.1787,6.70082,6.70082,0,0,0,1.90088.6308,13.45514,13.45514,0,0,0,2.0039.1768c.30909.0068.6128.0107.91895.0107C8.80567,40,9.168,40,9.53468,40H110.13477c.3594,0,.7246,0,1.084-.002.3047,0,.6172-.0039.9219-.0107a13.279,13.279,0,0,0,2-.1768,6.80432,6.80432,0,0,0,1.9082-.6308,6.27742,6.27742,0,0,0,1.6172-1.1787,6.39482,6.39482,0,0,0,1.1816-1.6143,6.60413,6.60413,0,0,0,.6191-1.9043,13.50643,13.50643,0,0,0,.1856-2.0019c.0039-.3106.0039-.6114.0039-.9219.0078-.3633.0078-.7246.0078-1.0938V9.53613c0-.36621,0-.72949-.0078-1.09179,0-.30664,0-.61426-.0039-.9209a13.5071,13.5071,0,0,0-.1856-2.002,6.6177,6.6177,0,0,0-.6191-1.90332,6.46619,6.46619,0,0,0-2.7988-2.7998,6.76754,6.76754,0,0,0-1.9082-.627,13.04394,13.04394,0,0,0-2-.17676c-.3047-.00488-.6172-.01074-.9219-.01269-.3594-.002-.7246-.002-1.084-.002Z" style="fill:#a6a6a6"/><path d="M8.44483,39.125c-.30468,0-.602-.0039-.90429-.0107a12.68714,12.68714,0,0,1-1.86914-.1631,5.88381,5.88381,0,0,1-1.65674-.5479,5.40573,5.40573,0,0,1-1.397-1.0166,5.32082,5.32082,0,0,1-1.02051-1.3965,5.72186,5.72186,0,0,1-.543-1.6572,12.41351,12.41351,0,0,1-.1665-1.875c-.00634-.2109-.01464-.9131-.01464-.9131V8.44434S.88185,7.75293.8877,7.5498a12.37039,12.37039,0,0,1,.16553-1.87207,5.7555,5.7555,0,0,1,.54346-1.6621A5.37349,5.37349,0,0,1,2.61183,2.61768,5.56543,5.56543,0,0,1,4.01417,1.59521a5.82309,5.82309,0,0,1,1.65332-.54394A12.58589,12.58589,0,0,1,7.543.88721L8.44532.875H111.21387l.9131.0127a12.38493,12.38493,0,0,1,1.8584.16259,5.93833,5.93833,0,0,1,1.6709.54785,5.59374,5.59374,0,0,1,2.415,2.41993,5.76267,5.76267,0,0,1,.5352,1.64892,12.995,12.995,0,0,1,.1738,1.88721c.0029.2832.0029.5874.0029.89014.0079.375.0079.73193.0079,1.09179V30.4648c0,.3633,0,.7178-.0079,1.0752,0,.3252,0,.6231-.0039.9297a12.73126,12.73126,0,0,1-.1709,1.8535,5.739,5.739,0,0,1-.54,1.67,5.48029,5.48029,0,0,1-1.0156,1.3857,5.4129,5.4129,0,0,1-1.3994,1.0225,5.86168,5.86168,0,0,1-1.668.5498,12.54218,12.54218,0,0,1-1.8692.1631c-.2929.0068-.5996.0107-.8974.0107l-1.084.002Z"/></g><g><g><g><path d="M24.76888,20.30068a4.94881,4.94881,0,0,1,2.35656-4.15206,5.06566,5.06566,0,0,0-3.99116-2.15768c-1.67924-.17626-3.30719,1.00483-4.1629,1.00483-.87227,0-2.18977-.98733-3.6085-.95814a5.31529,5.31529,0,0,0-4.47292,2.72787c-1.934,3.34842-.49141,8.26947,1.3612,10.97608.9269,1.32535,2.01018,2.8058,3.42763,2.7533,1.38706-.05753,1.9051-.88448,3.5794-.88448,1.65876,0,2.14479.88448,3.591.8511,1.48838-.02416,2.42613-1.33124,3.32051-2.66914a10.962,10.962,0,0,0,1.51842-3.09251A4.78205,4.78205,0,0,1,24.76888,20.30068Z" style="fill:#fff"/><path d="M22.03725,12.21089a4.87248,4.87248,0,0,0,1.11452-3.49062,4.95746,4.95746,0,0,0-3.20758,1.65961,4.63634,4.63634,0,0,0-1.14371,3.36139A4.09905,4.09905,0,0,0,22.03725,12.21089Z" style="fill:#fff"/></g></g><g><path d="M42.30227,27.13965h-4.7334l-1.13672,3.35645H34.42727l4.4834-12.418h2.083l4.4834,12.418H43.438ZM38.0591,25.59082h3.752l-1.84961-5.44727h-.05176Z" style="fill:#fff"/><path d="M55.15969,25.96973c0,2.81348-1.50586,4.62109-3.77832,4.62109a3.0693,3.0693,0,0,1-2.84863-1.584h-.043v4.48438h-1.8584V21.44238H48.4302v1.50586h.03418a3.21162,3.21162,0,0,1,2.88281-1.60059C53.645,21.34766,55.15969,23.16406,55.15969,25.96973Zm-1.91016,0c0-1.833-.94727-3.03809-2.39258-3.03809-1.41992,0-2.375,1.23047-2.375,3.03809,0,1.82422.95508,3.0459,2.375,3.0459C52.30227,29.01563,53.24953,27.81934,53.24953,25.96973Z" style="fill:#fff"/><path d="M65.12453,25.96973c0,2.81348-1.50586,4.62109-3.77832,4.62109a3.0693,3.0693,0,0,1-2.84863-1.584h-.043v4.48438h-1.8584V21.44238H58.395v1.50586h.03418A3.21162,3.21162,0,0,1,61.312,21.34766C63.60988,21.34766,65.12453,23.16406,65.12453,25.96973Zm-1.91016,0c0-1.833-.94727-3.03809-2.39258-3.03809-1.41992,0-2.375,1.23047-2.375,3.03809,0,1.82422.95508,3.0459,2.375,3.0459C62.26711,29.01563,63.21438,27.81934,63.21438,25.96973Z" style="fill:#fff"/><path d="M71.71047,27.03613c.1377,1.23145,1.334,2.04,2.96875,2.04,1.56641,0,2.69336-.80859,2.69336-1.91895,0-.96387-.67969-1.541-2.28906-1.93652l-1.60937-.3877c-2.28027-.55078-3.33887-1.61719-3.33887-3.34766,0-2.14258,1.86719-3.61426,4.51855-3.61426,2.624,0,4.42285,1.47168,4.4834,3.61426h-1.876c-.1123-1.23926-1.13672-1.9873-2.63379-1.9873s-2.52148.75684-2.52148,1.8584c0,.87793.6543,1.39453,2.25488,1.79l1.36816.33594c2.54785.60254,3.60645,1.626,3.60645,3.44238,0,2.32324-1.85059,3.77832-4.79395,3.77832-2.75391,0-4.61328-1.4209-4.7334-3.667Z" style="fill:#fff"/><path d="M83.34621,19.2998v2.14258h1.72168v1.47168H83.34621v4.99121c0,.77539.34473,1.13672,1.10156,1.13672a5.80752,5.80752,0,0,0,.61133-.043v1.46289a5.10351,5.10351,0,0,1-1.03223.08594c-1.833,0-2.54785-.68848-2.54785-2.44434V22.91406H80.16262V21.44238H81.479V19.2998Z" style="fill:#fff"/><path d="M86.065,25.96973c0-2.84863,1.67773-4.63867,4.29395-4.63867,2.625,0,4.29492,1.79,4.29492,4.63867,0,2.85645-1.66113,4.63867-4.29492,4.63867C87.72609,30.6084,86.065,28.82617,86.065,25.96973Zm6.69531,0c0-1.9541-.89551-3.10742-2.40137-3.10742s-2.40039,1.16211-2.40039,3.10742c0,1.96191.89453,3.10645,2.40039,3.10645S92.76027,27.93164,92.76027,25.96973Z" style="fill:#fff"/><path d="M96.18606,21.44238h1.77246v1.541h.043a2.1594,2.1594,0,0,1,2.17773-1.63574,2.86616,2.86616,0,0,1,.63672.06934v1.73828a2.59794,2.59794,0,0,0-.835-.1123,1.87264,1.87264,0,0,0-1.93652,2.083v5.37012h-1.8584Z" style="fill:#fff"/><path d="M109.3843,27.83691c-.25,1.64355-1.85059,2.77148-3.89844,2.77148-2.63379,0-4.26855-1.76465-4.26855-4.5957,0-2.83984,1.64355-4.68164,4.19043-4.68164,2.50488,0,4.08008,1.7207,4.08008,4.46582v.63672h-6.39453v.1123a2.358,2.358,0,0,0,2.43555,2.56445,2.04834,2.04834,0,0,0,2.09082-1.27344Zm-6.28223-2.70215h4.52637a2.1773,2.1773,0,0,0-2.2207-2.29785A2.292,2.292,0,0,0,103.10207,25.13477Z" style="fill:#fff"/></g></g><g><path d="M37.82619,8.731a2.63964,2.63964,0,0,1,2.80762,2.96484c0,1.90625-1.03027,3.002-2.80762,3.002H35.67092V8.731Zm-1.22852,5.123h1.125a1.87588,1.87588,0,0,0,1.96777-2.146,1.881,1.881,0,0,0-1.96777-2.13379h-1.125Z" style="fill:#fff"/><path d="M41.68068,12.44434a2.13323,2.13323,0,1,1,4.24707,0,2.13358,2.13358,0,1,1-4.24707,0Zm3.333,0c0-.97607-.43848-1.54687-1.208-1.54687-.77246,0-1.207.5708-1.207,1.54688,0,.98389.43457,1.55029,1.207,1.55029C44.57522,13.99463,45.01369,13.42432,45.01369,12.44434Z" style="fill:#fff"/><path d="M51.57326,14.69775h-.92187l-.93066-3.31641h-.07031l-.92676,3.31641h-.91309l-1.24121-4.50293h.90137l.80664,3.436h.06641l.92578-3.436h.85254l.92578,3.436h.07031l.80273-3.436h.88867Z" style="fill:#fff"/><path d="M53.85354,10.19482H54.709v.71533h.06641a1.348,1.348,0,0,1,1.34375-.80225,1.46456,1.46456,0,0,1,1.55859,1.6748v2.915h-.88867V12.00586c0-.72363-.31445-1.0835-.97168-1.0835a1.03294,1.03294,0,0,0-1.0752,1.14111v2.63428h-.88867Z" style="fill:#fff"/><path d="M59.09377,8.437h.88867v6.26074h-.88867Z" style="fill:#fff"/><path d="M61.21779,12.44434a2.13346,2.13346,0,1,1,4.24756,0,2.1338,2.1338,0,1,1-4.24756,0Zm3.333,0c0-.97607-.43848-1.54687-1.208-1.54687-.77246,0-1.207.5708-1.207,1.54688,0,.98389.43457,1.55029,1.207,1.55029C64.11232,13.99463,64.5508,13.42432,64.5508,12.44434Z" style="fill:#fff"/><path d="M66.4009,13.42432c0-.81055.60352-1.27783,1.6748-1.34424l1.21973-.07031v-.38867c0-.47559-.31445-.74414-.92187-.74414-.49609,0-.83984.18213-.93848.50049h-.86035c.09082-.77344.81836-1.26953,1.83984-1.26953,1.12891,0,1.76563.562,1.76563,1.51318v3.07666h-.85547v-.63281h-.07031a1.515,1.515,0,0,1-1.35254.707A1.36026,1.36026,0,0,1,66.4009,13.42432Zm2.89453-.38477v-.37646l-1.09961.07031c-.62012.0415-.90137.25244-.90137.64941,0,.40527.35156.64111.835.64111A1.0615,1.0615,0,0,0,69.29543,13.03955Z" style="fill:#fff"/><path d="M71.34816,12.44434c0-1.42285.73145-2.32422,1.86914-2.32422a1.484,1.484,0,0,1,1.38086.79h.06641V8.437h.88867v6.26074h-.85156v-.71143h-.07031a1.56284,1.56284,0,0,1-1.41406.78564C72.0718,14.772,71.34816,13.87061,71.34816,12.44434Zm.918,0c0,.95508.4502,1.52979,1.20313,1.52979.749,0,1.21191-.583,1.21191-1.52588,0-.93848-.46777-1.52979-1.21191-1.52979C72.72121,10.91846,72.26613,11.49707,72.26613,12.44434Z" style="fill:#fff"/><path d="M79.23,12.44434a2.13323,2.13323,0,1,1,4.24707,0,2.13358,2.13358,0,1,1-4.24707,0Zm3.333,0c0-.97607-.43848-1.54687-1.208-1.54687-.77246,0-1.207.5708-1.207,1.54688,0,.98389.43457,1.55029,1.207,1.55029C82.12453,13.99463,82.563,13.42432,82.563,12.44434Z" style="fill:#fff"/><path d="M84.66945,10.19482h.85547v.71533h.06641a1.348,1.348,0,0,1,1.34375-.80225,1.46456,1.46456,0,0,1,1.55859,1.6748v2.915H87.605V12.00586c0-.72363-.31445-1.0835-.97168-1.0835a1.03294,1.03294,0,0,0-1.0752,1.14111v2.63428h-.88867Z" style="fill:#fff"/><path d="M93.51516,9.07373v1.1416h.97559v.74854h-.97559V13.2793c0,.47168.19434.67822.63672.67822a2.96657,2.96657,0,0,0,.33887-.02051v.74023a2.9155,2.9155,0,0,1-.4834.04541c-.98828,0-1.38184-.34766-1.38184-1.21582v-2.543h-.71484v-.74854h.71484V9.07373Z" style="fill:#fff"/><path d="M95.70461,8.437h.88086v2.48145h.07031a1.3856,1.3856,0,0,1,1.373-.80664,1.48339,1.48339,0,0,1,1.55078,1.67871v2.90723H98.69v-2.688c0-.71924-.335-1.0835-.96289-1.0835a1.05194,1.05194,0,0,0-1.13379,1.1416v2.62988h-.88867Z" style="fill:#fff"/><path d="M104.76125,13.48193a1.828,1.828,0,0,1-1.95117,1.30273A2.04531,2.04531,0,0,1,100.73,12.46045a2.07685,2.07685,0,0,1,2.07617-2.35254c1.25293,0,2.00879.856,2.00879,2.27V12.688h-3.17969v.0498a1.1902,1.1902,0,0,0,1.19922,1.29,1.07934,1.07934,0,0,0,1.07129-.5459Zm-3.126-1.45117h2.27441a1.08647,1.08647,0,0,0-1.1084-1.1665A1.15162,1.15162,0,0,0,101.63527,12.03076Z" style="fill:#fff"/></g></g></g></svg>
+  </a>
+  <a href="#" class="badge-link" data-lang="zh">
+    <svg id="CNSC" xmlns="http://www.w3.org/2000/svg" width="108.85157" height="40" viewBox="0 0 108.85157 40"><title>Download on the App Store</title><g><g><path d="M99.32227,0H9.53468c-.3667,0-.729,0-1.09473.002-.30615.002-.60986.00781-.91895.0127A13.21476,13.21476,0,0,0,5.5171.19141a6.66509,6.66509,0,0,0-1.90088.627A6.43779,6.43779,0,0,0,1.99757,1.99707,6.25844,6.25844,0,0,0,.81935,3.61816a6.60119,6.60119,0,0,0-.625,1.90332,12.993,12.993,0,0,0-.1792,2.002C.00587,7.83008.00489,8.1377,0,8.44434V31.5586c.00489.3105.00587.6113.01515.9219a12.99232,12.99232,0,0,0,.1792,2.0019,6.58756,6.58756,0,0,0,.625,1.9043A6.20778,6.20778,0,0,0,1.99757,38.001a6.27445,6.27445,0,0,0,1.61865,1.1787,6.70082,6.70082,0,0,0,1.90088.6308,13.45514,13.45514,0,0,0,2.0039.1768c.30909.0068.6128.0107.91895.0107C8.80567,40,9.168,40,9.53468,40H99.32227c.3594,0,.7246,0,1.084-.002.3047,0,.6172-.0039.9219-.0107a13.279,13.279,0,0,0,2-.1768,6.80432,6.80432,0,0,0,1.9082-.6308,6.27742,6.27742,0,0,0,1.6172-1.1787,6.39482,6.39482,0,0,0,1.1816-1.6143,6.60413,6.60413,0,0,0,.6191-1.9043,13.50643,13.50643,0,0,0,.1856-2.0019c.0039-.3106.0039-.6114.0039-.9219.0078-.3633.0078-.7246.0078-1.0938V9.53613c0-.36621,0-.72949-.0078-1.09179,0-.30664,0-.61426-.0039-.9209a13.5071,13.5071,0,0,0-.1856-2.002,6.6177,6.6177,0,0,0-.6191-1.90332,6.46619,6.46619,0,0,0-2.7988-2.7998,6.76754,6.76754,0,0,0-1.9082-.627,13.04394,13.04394,0,0,0-2-.17676c-.3047-.00488-.6172-.01074-.9219-.01269C100.04687,0,99.68167,0,99.32227,0Z" style="fill:#a6a6a6"/><path d="M8.44483,39.125c-.30468,0-.602-.0039-.90429-.0107a12.68714,12.68714,0,0,1-1.86914-.1631,5.88381,5.88381,0,0,1-1.65674-.5479,5.40573,5.40573,0,0,1-1.397-1.0166,5.32082,5.32082,0,0,1-1.02051-1.3965,5.72186,5.72186,0,0,1-.543-1.6572,12.41351,12.41351,0,0,1-.1665-1.875c-.00634-.2109-.01464-.9131-.01464-.9131V8.44434S.88185,7.75293.8877,7.5498a12.37039,12.37039,0,0,1,.16553-1.87207,5.7555,5.7555,0,0,1,.54346-1.6621A5.37349,5.37349,0,0,1,2.61183,2.61768,5.56543,5.56543,0,0,1,4.01417,1.59521a5.82309,5.82309,0,0,1,1.65332-.54394A12.58589,12.58589,0,0,1,7.543.88721L8.44532.875h91.956l.9131.0127a12.38493,12.38493,0,0,1,1.8584.16259,5.93833,5.93833,0,0,1,1.6709.54785,5.59374,5.59374,0,0,1,2.415,2.41993A5.76267,5.76267,0,0,1,107.794,5.667a12.995,12.995,0,0,1,.1738,1.88721c.0029.2832.0029.5874.0029.89014.0079.375.0079.73193.0079,1.09179V30.4648c0,.3633,0,.7178-.0079,1.0752,0,.3252,0,.6231-.0039.9297a12.73126,12.73126,0,0,1-.1709,1.8535,5.739,5.739,0,0,1-.54,1.67,5.48029,5.48029,0,0,1-1.0156,1.3857,5.4129,5.4129,0,0,1-1.3994,1.0225,5.86168,5.86168,0,0,1-1.668.5498,12.54218,12.54218,0,0,1-1.8692.1631c-.2929.0068-.5996.0107-.8974.0107l-1.084.002Z"/></g><g><path d="M41.16742,16.55462H37.11585l-.973,2.873H34.42678L38.26437,8.79837h1.783l3.83759,10.62922H42.13957Zm-3.632-1.32573H40.747l-1.58318-4.66261h-.0443Z" style="fill:#fff"/><path d="M52.1728,15.55322c0,2.40821-1.28895,3.95545-3.23407,3.95545a2.62719,2.62719,0,0,1-2.4383-1.35582h-.03678v3.83842H44.87294V11.678h1.53972V12.967h.02926a2.749,2.749,0,0,1,2.46756-1.37C50.87633,11.59694,52.1728,13.1517,52.1728,15.55322Zm-1.635,0c0-1.569-.81082-2.60046-2.04794-2.60046-1.21539,0-2.03289,1.05323-2.03289,2.60046,0,1.56145.8175,2.60715,2.03289,2.60715C49.727,18.16037,50.53779,17.1364,50.53779,15.55322Z" style="fill:#fff"/><path d="M60.70267,15.55322c0,2.40821-1.28937,3.95545-3.23449,3.95545a2.62719,2.62719,0,0,1-2.4383-1.35582H54.9931v3.83842H53.4024V11.678h1.53972V12.967h.02926a2.749,2.749,0,0,1,2.46756-1.37C59.40578,11.59694,60.70267,13.1517,60.70267,15.55322Zm-1.63543,0c0-1.569-.81082-2.60046-2.04794-2.60046-1.21539,0-2.03289,1.05323-2.03289,2.60046,0,1.56145.8175,2.60715,2.03289,2.60715C58.25643,18.16037,59.06725,17.1364,59.06725,15.55322Z" style="fill:#fff"/><path d="M66.3391,16.466c.11786,1.05406,1.14183,1.74618,2.54112,1.74618,1.34077,0,2.30539-.69212,2.30539-1.64253,0-.825-.58178-1.319-1.95933-1.65758l-1.37755-.33185c-1.95181-.47144-2.85792-1.38424-2.85792-2.86544,0-1.834,1.59823-3.09364,3.86684-3.09364,2.24688,0,3.7866,1.25969,3.83842,3.09364H71.09032c-.09613-1.06075-.973-1.701-2.2544-1.701s-2.15828.64782-2.15828,1.59071c0,.75147.56,1.19366,1.93008,1.53219l1.17109.28755c2.18085.51575,3.08612,1.39176,3.08612,2.94652,0,1.98859-1.58318,3.23407-4.10257,3.23407-2.35722,0-3.94876-1.21623-4.05158-3.13878Z" style="fill:#fff"/><path d="M76.29961,9.84407v1.834h1.47368v1.25969H76.29961V17.21c0,.6637.29507.973.94289.973a4.971,4.971,0,0,0,.52327-.03678v1.25217a4.36838,4.36838,0,0,1-.88354.07356c-1.569,0-2.18085-.5893-2.18085-2.09224V12.93771H73.5746V11.678h1.12678v-1.834Z" style="fill:#fff"/><path d="M78.6259,15.55322c0-2.4383,1.43607-3.97049,3.67542-3.97049,2.24688,0,3.67626,1.53219,3.67626,3.97049,0,2.445-1.42185,3.97049-3.67626,3.97049C80.04776,19.52372,78.6259,17.99821,78.6259,15.55322Zm5.73089,0c0-1.67262-.76651-2.65981-2.05546-2.65981s-2.05546.99471-2.05546,2.65981c0,1.67931.76651,2.659,2.05546,2.659S84.35679,17.23253,84.35679,15.55322Z" style="fill:#fff"/><path d="M87.2891,11.678h1.51715v1.319H88.843a1.84835,1.84835,0,0,1,1.864-1.40012,2.4533,2.4533,0,0,1,.545.05935v1.48789a2.22372,2.22372,0,0,0-.71469-.09613,1.6029,1.6029,0,0,0-1.65758,1.783v4.59658H87.2891Z" style="fill:#fff"/><path d="M98.5862,17.15145a3.11011,3.11011,0,0,1-3.33689,2.37227c-2.2544,0-3.65369-1.51046-3.65369-3.93372,0-2.43078,1.40681-4.00727,3.58682-4.00727,2.14407,0,3.49236,1.47284,3.49236,3.82254v.545H93.20138v.09613a2.01837,2.01837,0,0,0,2.08472,2.19506,1.75329,1.75329,0,0,0,1.78965-1.09Zm-5.3773-2.31292h3.87437a1.86367,1.86367,0,0,0-1.90082-1.96686A1.96188,1.96188,0,0,0,93.2089,14.83853Z" style="fill:#fff"/></g><g><path d="M34.42873,24.04h7.46143v.78027H38.34328v1.10352q.76245.353,1.53467.77832.772.4248,1.562.91211l-.45947.7168q-.813-.51855-1.46094-.91406-.64819-.39551-1.17627-.65723v4.6084h-.79053V24.82031h-3.124Z" style="fill:#fff"/><path d="M43.95607,24.27441h1.562v-.62988h.772v.62988h1.44727v.7168H46.29006v.61035h1.82422q-.01831-.44971-.03662-.93945-.019-.48926-.01855-1.02637h.76709q0,.54639.01611,1.03125t.03467.93457h2.03076v.72656H48.91359q.03662.50537.09424.92285c.03809.2793.07275.52832.10352.749a1.65659,1.65659,0,0,1,.05518.22363c.01221.07129.02441.14453.03662.21777A8.07449,8.07449,0,0,0,49.543,27.582q.15161-.4541.27588-.97363l.70313.32129a9.7383,9.7383,0,0,1-1.00635,2.57813c.02441.06055.05127.123.08057.18555q.04321.09375.08936.18164.28931.57422.45947.57422.115,0,.2666-1.208l.67529.3584q-.28931,1.67725-.85449,1.67676-.42773,0-.96973-.75391a2.1332,2.1332,0,0,1-.188-.3584,5.12,5.12,0,0,1-1.40186,1.2041l-.436-.62891a4.19187,4.19187,0,0,0,1.48828-1.40234q-.08276-.271-.16748-.55762-.085-.28711-.145-.59961a12.605,12.605,0,0,1-.26172-1.85156H43.51955v-.72656h1.99854v-.61035h-1.562Zm3.78125,5.28809V30.252q-.30322.03662-.61328.06836c-.20654.02148-.416.04492-.627.06934v.95117h-.772v-.85449q-.43652.03662-.88721.06836c-.2998.02148-.605.0498-.91406.083l-.10107-.74414q.50977-.019.97852-.05273.46875-.03516.92383-.0625V29.1582H44.19045l-.16113-.62988a5.21327,5.21327,0,0,0,.55615-.88672h-.80859v-.70312h1.11621a1.73325,1.73325,0,0,0,.09668-.26855q.03662-.13477.0918-.28711l.75342.13379c-.03027.085-.05469.16113-.07324.22754a.99246.99246,0,0,1-.07812.19434h2.09033v.70313H45.40334q-.12378.249-.25049.46t-.23682.40918h.80908V27.9541h.772v.55664h1.19434v.64746H46.49709v.53711c.21094-.01758.42041-.03906.627-.06152Q47.43386,29.59863,47.73732,29.5625Zm1.34619-5.459.5835-.39453a12.55594,12.55594,0,0,1,.979,1.23633l-.59277.42188q-.17944-.28418-.42041-.60352Q49.39113,24.44434,49.08352,24.10352Z" style="fill:#fff"/></g><g><g><path d="M24.76888,20.30068a4.94881,4.94881,0,0,1,2.35656-4.15206,5.06566,5.06566,0,0,0-3.99116-2.15768c-1.67924-.17626-3.30719,1.00483-4.1629,1.00483-.87227,0-2.18977-.98733-3.6085-.95814a5.31529,5.31529,0,0,0-4.47292,2.72787c-1.934,3.34842-.49141,8.26947,1.3612,10.97608.9269,1.32535,2.01018,2.8058,3.42763,2.7533,1.38706-.05753,1.9051-.88448,3.5794-.88448,1.65876,0,2.14479.88448,3.591.8511,1.48838-.02416,2.42613-1.33124,3.32051-2.66914a10.962,10.962,0,0,0,1.51842-3.09251A4.78205,4.78205,0,0,1,24.76888,20.30068Z" style="fill:#fff"/><path d="M22.03725,12.21089a4.87248,4.87248,0,0,0,1.11452-3.49062,4.95746,4.95746,0,0,0-3.20758,1.65961,4.63634,4.63634,0,0,0-1.14371,3.36139A4.09905,4.09905,0,0,0,22.03725,12.21089Z" style="fill:#fff"/></g></g></g></svg>
+    </a>
+    </div><!-- /.hero-text -->
+    <div class="hero-phone">
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">📒</div>
+      </div>
+    </div>
+  </div><!-- /.hero-inner -->
+</section>
+
+<!-- ===== FEATURES ===== -->
+<div class="section">
+  <div class="section-header">
+    <h2 class="section-title">
+      <span data-lang="ja active">主な機能</span>
+      <span data-lang="en">Features</span>
+      <span data-lang="zh">主要功能</span>
+    </h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="features-grid">
+
+    <div class="feature-tile highlight">
+      <div class="feature-icon">⚔️</div>
+      <div class="feature-label">
+        <span data-lang="ja active">対戦記録</span>
+        <span data-lang="en">Battle Records</span>
+        <span data-lang="zh">对战记录</span>
+      </div>
+    </div>
+
+    <div class="feature-tile">
+      <div class="feature-icon">📊</div>
+      <div class="feature-label">
+        <span data-lang="ja active">対戦統計</span>
+        <span data-lang="en">Battle Stats</span>
+        <span data-lang="zh">对战统计</span>
+      </div>
+    </div>
+
+    <div class="feature-tile">
+      <div class="feature-icon">🔁</div>
+      <div class="feature-label">
+        <span data-lang="ja active">連戦モード</span>
+        <span data-lang="en">Multi-Battle</span>
+        <span data-lang="zh">多场对战</span>
+      </div>
+    </div>
+
+    <div class="feature-tile">
+      <div class="feature-icon">⭐</div>
+      <div class="feature-label">
+        <span data-lang="ja active">お気に入り</span>
+        <span data-lang="en">Favorites</span>
+        <span data-lang="zh">收藏管理</span>
+      </div>
+    </div>
+
+    <div class="feature-tile">
+      <div class="feature-icon">📤</div>
+      <div class="feature-label">
+        <span data-lang="ja active">SNSシェア</span>
+        <span data-lang="en">SNS Share</span>
+        <span data-lang="zh">SNS 分享</span>
+      </div>
+    </div>
+
+    <div class="feature-tile">
+      <div class="feature-icon">☁️</div>
+      <div class="feature-label">
+        <span data-lang="ja active">iCloud</span>
+        <span data-lang="en">iCloud</span>
+        <span data-lang="zh">iCloud</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== FAQ ===== -->
+<div class="section">
+  <div class="section-header">
+    <h2 class="section-title">
+      <span data-lang="ja active">よくある質問</span>
+      <span data-lang="en">FAQ</span>
+      <span data-lang="zh">常见问题</span>
+    </h2>
+    <div class="section-line"></div>
+  </div>
+
+  <!-- JA FAQ -->
+  <div class="faq-list" data-lang="ja active">
+    <details>
+      <summary>データはどこに保存されますか？</summary>
+      <div class="faq-answer">すべてのデータはお使いのデバイス上にのみ保存されます。外部サーバーへの送信は行われません。iCloudバックアップ機能を使うことで、同じApple IDの他のデバイスにデータを移行できます。</div>
+    </details>
+    <details>
+      <summary>アプリを削除するとデータはどうなりますか？</summary>
+      <div class="faq-answer">アプリを削除すると、デバイス上のデータはすべて削除されます。事前にiCloudバックアップ機能をご利用ください。</div>
+    </details>
+    <details>
+      <summary>何件まで記録できますか？</summary>
+      <div class="faq-answer">対戦記録は最大500件まで保存できます。</div>
+    </details>
+    <details>
+      <summary>広告について教えてください</summary>
+      <div class="faq-answer">本アプリはGoogle AdMobを使用して広告を表示する場合があります。広告の表示はアプリの運営・維持のために行われます。</div>
+    </details>
+    <details>
+      <summary>複数言語に対応していますか？</summary>
+      <div class="faq-answer">日本語・英語・中国語（簡体字）の3言語に対応しています。アプリ内の設定から切り替えられます。</div>
+    </details>
+  </div>
+
+  <!-- EN FAQ -->
+  <div class="faq-list" data-lang="en">
+    <details>
+      <summary>Where is my data stored?</summary>
+      <div class="faq-answer">All data is stored only on your device. Nothing is sent to external servers. You can use the iCloud Backup feature to transfer data to another device with the same Apple ID.</div>
+    </details>
+    <details>
+      <summary>What happens to my data if I delete the app?</summary>
+      <div class="faq-answer">Deleting the app will remove all data from your device. Please use the iCloud Backup feature beforehand to preserve your records.</div>
+    </details>
+    <details>
+      <summary>How many records can I save?</summary>
+      <div class="faq-answer">You can save up to 500 battle records.</div>
+    </details>
+    <details>
+      <summary>What about advertisements?</summary>
+      <div class="faq-answer">This app uses Google AdMob to display advertisements to support development and maintenance costs.</div>
+    </details>
+    <details>
+      <summary>Is the app available in multiple languages?</summary>
+      <div class="faq-answer">The app supports Japanese, English, and Simplified Chinese. You can switch languages from the in-app settings.</div>
+    </details>
+  </div>
+
+  <!-- ZH FAQ -->
+  <div class="faq-list" data-lang="zh">
+    <details>
+      <summary>数据保存在哪里？</summary>
+      <div class="faq-answer">所有数据仅保存在您的设备上，不会发送至外部服务器。使用 iCloud 备份功能可将数据迁移至同一 Apple ID 的其他设备。</div>
+    </details>
+    <details>
+      <summary>删除应用后数据会怎样？</summary>
+      <div class="faq-answer">删除应用将删除设备上的所有数据。请提前使用 iCloud 备份功能保存记录。</div>
+    </details>
+    <details>
+      <summary>可以保存多少条记录？</summary>
+      <div class="faq-answer">最多可保存 500 条对战记录。</div>
+    </details>
+    <details>
+      <summary>关于广告</summary>
+      <div class="faq-answer">本应用使用 Google AdMob 显示广告，用于支持应用的运营和维护费用。</div>
+    </details>
+    <details>
+      <summary>支持多语言吗？</summary>
+      <div class="faq-answer">本应用支持日语、英语和简体中文，可在应用内设置中切换语言。</div>
+    </details>
+  </div>
+</div>
+
+<hr class="section-divider">
+
+<!-- ===== CONTACT ===== -->
+<div class="section">
+  <div class="section-header">
+    <h2 class="section-title">
+      <span data-lang="ja active">お問い合わせ</span>
+      <span data-lang="en">Support</span>
+      <span data-lang="zh">联系我们</span>
+    </h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-card">
+    <p data-lang="ja active">
+      ご不明な点やバグのご報告は、App Storeのサポートリンクからお問い合わせください。<br>
+      お問い合わせいただいた内容は順次対応いたします。
+    </p>
+    <p data-lang="en">
+      For questions or bug reports, please contact us via the App Store support link.<br>
+      We will respond to your inquiry as soon as possible.
+    </p>
+    <p data-lang="zh">
+      如有问题或错误报告，请通过 App Store 支持链接与我们联系。<br>
+      我们将尽快回复您的咨询。
+    </p>
+    <a href="#" class="contact-link" id="contact-appstore-link">
+      <span data-lang="ja active">App Store サポートページへ</span>
+      <span data-lang="en">Go to App Store Support</span>
+      <span data-lang="zh">前往 App Store 支持页面</span>
+    </a>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-logo">PokeDiary</div>
+  <div class="footer-links">
+    <a href="privacy.html" data-foot-privacy>プライバシーポリシー</a>
+    <a href="terms.html" data-foot-terms>利用規約</a>
+  </div>
+  <div>© 2026 空想ポケット. All rights reserved.</div>
+  <div class="footer-notice" data-lang="ja active">
+    ポケットモンスター・ポケモン・Pokémonは任天堂、クリーチャーズ、ゲームフリークの登録商標です。本アプリはファンアプリであり、任天堂等とは一切関係ありません。
+  </div>
+  <div class="footer-notice" data-lang="en">
+    Pocket Monsters, Pokémon, and related trademarks are registered trademarks of Nintendo, Creatures Inc., and GAME FREAK inc. This is a fan application and is not affiliated with Nintendo or any related entities.
+  </div>
+  <div class="footer-notice" data-lang="zh">
+    宝可梦・Pokemon・Pokémon 是任天堂、Creatures、Game Freak 的注册商标。本应用为粉丝应用，与任天堂等无任何关系。
+  </div>
+</footer>
+
+<script>
+  function setLang(lang) {
+    // update buttons
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+
+    // toggle content
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      const langs = el.getAttribute('data-lang').replace(' active','').split(' ');
+      el.classList.toggle('active', langs.includes(lang));
+    });
+
+    // update nav labels
+    const navPrivacy = document.querySelector('[data-nav-privacy]');
+    const navTerms = document.querySelector('[data-nav-terms]');
+    const footPrivacy = document.querySelector('[data-foot-privacy]');
+    const footTerms = document.querySelector('[data-foot-terms]');
+    if (lang === 'en') {
+      if (navPrivacy) navPrivacy.textContent = 'Privacy Policy';
+      if (navTerms) navTerms.textContent = 'Terms of Use';
+      if (footPrivacy) footPrivacy.textContent = 'Privacy Policy';
+      if (footTerms) footTerms.textContent = 'Terms of Use';
+    } else if (lang === 'zh') {
+      if (navPrivacy) navPrivacy.textContent = '隐私政策';
+      if (navTerms) navTerms.textContent = '使用条款';
+      if (footPrivacy) footPrivacy.textContent = '隐私政策';
+      if (footTerms) footTerms.textContent = '使用条款';
+    } else {
+      if (navPrivacy) navPrivacy.textContent = 'プライバシーポリシー';
+      if (navTerms) navTerms.textContent = '利用規約';
+      if (footPrivacy) footPrivacy.textContent = 'プライバシーポリシー';
+      if (footTerms) footTerms.textContent = '利用規約';
+    }
+
+    document.documentElement.lang = lang;
+    localStorage.setItem('poke-lang', lang);
+  }
+
+  // restore last language
+  (function() {
+    const saved = localStorage.getItem('poke-lang');
+    if (saved && saved !== 'ja') {
+      const btn = [...document.querySelectorAll('.lang-btn')].find(b => b.textContent === saved.toUpperCase());
+      if (btn) { btn.click(); }
+    }
+  })();
+</script>
+</body>
+</html>

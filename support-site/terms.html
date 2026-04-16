@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,700;0,9..40,800&family=M+PLUS+1p:wght@400;700;800&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+  <title>PokeDiary - 利用規約 / Terms of Use / 使用条款</title>
+  <style>
+    :root {
+      --bg: #121212;
+      --surface: #181818;
+      --surface-2: #282828;
+      --surface-3: #383838;
+      --accent: #E8344A;
+      --accent-dark: #C9283E;
+      --text: #FFFFFF;
+      --text-muted: #B3B3B3;
+      --text-faint: #555555;
+      --border: rgba(255,255,255,0.06);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-pill: 28px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'M PLUS 1p', 'DM Sans', 'Noto Sans SC', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: rgba(18,18,18,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: -0.3px;
+    }
+    .logo-link img { width: 28px; height: 28px; border-radius: 7px; object-fit: cover; }
+
+    /* ===== LANG SWITCHER ===== */
+    .lang-switcher {
+      display: flex;
+      gap: 2px;
+      background: var(--surface-2);
+      border-radius: var(--radius-sm);
+      padding: 3px;
+    }
+    .lang-btn {
+      border: none;
+      background: transparent;
+      padding: 3px 8px;
+      border-radius: 5px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: all 0.15s;
+    }
+    .lang-btn.active { background: var(--surface-3); color: var(--text); }
+
+    /* ===== PAGE HERO ===== */
+    .page-hero {
+      background: linear-gradient(135deg, #1a0a0d 0%, #2a1218 100%);
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      padding: 48px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: 50%; transform: translateX(-50%);
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(232,52,74,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero h1 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      position: relative;
+    }
+    .page-hero .updated {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 8px;
+      position: relative;
+    }
+
+    /* ===== CONTENT ===== */
+    .content-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 24px 64px;
+    }
+
+    .policy-card {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      margin-bottom: 12px;
+    }
+    .policy-card h2 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      padding-left: 10px;
+      border-left: 3px solid var(--accent);
+    }
+    .policy-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      white-space: pre-line;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent);
+      text-decoration: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      transition: opacity 0.15s;
+    }
+    .back-link:hover { opacity: 0.75; }
+
+.rights-card {
+  background: var(--surface-2);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  margin-bottom: 12px;
+  border-left: 3px solid var(--accent);
+}
+.rights-card h2 {
+  font-family: 'DM Sans', 'M PLUS 1p', 'Noto Sans SC', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.rights-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
+
+    [data-lang] { display: none; }
+    [data-lang].active { display: block; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0a0a0a;
+      color: var(--text-faint);
+      text-align: center;
+      padding: 24px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--text-muted); text-decoration: none; margin: 0 8px; transition: color 0.15s; }
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 600px) {
+      .content-wrap { padding: 24px 16px 48px; }
+      .policy-card { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo-link">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABCGVYSWZNTQAqAAAACAAHARIAAwAAAAEAAQAAARoABQAAAAEAAABiARsABQAAAAEAAABqASgAAwAAAAEAAgAAATEAAgAAADkAAAByATsAAgAAAA0AAACsh2kABAAAAAEAAAC6AAAAAAAAAGAAAAABAAAAYAAAAAFDYW52YSBkb2M9REFIR2RFOXBZamcgdXNlcj1VQUY2YkczVGxvWSBicmFuZD1CQUY2YktreWJ4bwAA44Oe44Kk44Kt44O8AAAABpAAAAcAAAAEMDIxMJEBAAcAAAAEAQIDAKAAAAcAAAAEMDEwMKABAAMAAAABAAEAAKACAAQAAAABAAAAyKADAAQAAAABAAAAyAAAAADOTm4RAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAGKmlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNi4wLjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgICAgICAgICB4bWxuczpleGlmPSJodHRwOi8vbnMuYWRvYmUuY29tL2V4aWYvMS4wLyIKICAgICAgICAgICAgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIgogICAgICAgICAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyIKICAgICAgICAgICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIj4KICAgICAgICAgPGV4aWY6Q29sb3JTcGFjZT4xPC9leGlmOkNvbG9yU3BhY2U+CiAgICAgICAgIDxleGlmOlBpeGVsWERpbWVuc2lvbj4xMDI0PC9leGlmOlBpeGVsWERpbWVuc2lvbj4KICAgICAgICAgPGV4aWY6RXhpZlZlcnNpb24+MDIxMDwvZXhpZjpFeGlmVmVyc2lvbj4KICAgICAgICAgPGV4aWY6Rmxhc2hQaXhWZXJzaW9uPjAxMDA8L2V4aWY6Rmxhc2hQaXhWZXJzaW9uPgogICAgICAgICA8ZXhpZjpQaXhlbFlEaW1lbnNpb24+MTAyNDwvZXhpZjpQaXhlbFlEaW1lbnNpb24+CiAgICAgICAgIDxleGlmOkNvbXBvbmVudHNDb25maWd1cmF0aW9uPgogICAgICAgICAgICA8cmRmOlNlcT4KICAgICAgICAgICAgICAgPHJkZjpsaT4xPC9yZGY6bGk+CiAgICAgICAgICAgICAgIDxyZGY6bGk+MjwvcmRmOmxpPgogICAgICAgICAgICAgICA8cmRmOmxpPjM8L3JkZjpsaT4KICAgICAgICAgICAgICAgPHJkZjpsaT4wPC9yZGY6bGk+CiAgICAgICAgICAgIDwvcmRmOlNlcT4KICAgICAgICAgPC9leGlmOkNvbXBvbmVudHNDb25maWd1cmF0aW9uPgogICAgICAgICA8eG1wOkNyZWF0b3JUb29sPkNhbnZhIGRvYz1EQUhHZEU5cFlqZyB1c2VyPVVBRjZiRzNUbG9ZIGJyYW5kPUJBRjZiS2t5YnhvPC94bXA6Q3JlYXRvclRvb2w+CiAgICAgICAgIDx0aWZmOlJlc29sdXRpb25Vbml0PjI8L3RpZmY6UmVzb2x1dGlvblVuaXQ+CiAgICAgICAgIDx0aWZmOk9yaWVudGF0aW9uPjE8L3RpZmY6T3JpZW50YXRpb24+CiAgICAgICAgIDx0aWZmOlhSZXNvbHV0aW9uPjk2PC90aWZmOlhSZXNvbHV0aW9uPgogICAgICAgICA8dGlmZjpZUmVzb2x1dGlvbj45NjwvdGlmZjpZUmVzb2x1dGlvbj4KICAgICAgICAgPGRjOnRpdGxlPgogICAgICAgICAgICA8cmRmOkFsdD4KICAgICAgICAgICAgICAgPHJkZjpsaSB4bWw6bGFuZz0ieC1kZWZhdWx0Ij5QIC0gMTwvcmRmOmxpPgogICAgICAgICAgICA8L3JkZjpBbHQ+CiAgICAgICAgIDwvZGM6dGl0bGU+CiAgICAgICAgIDxkYzpjcmVhdG9yPgogICAgICAgICAgICA8cmRmOlNlcT4KICAgICAgICAgICAgICAgPHJkZjpsaT7jg57jgqTjgq3jg7w8L3JkZjpsaT4KICAgICAgICAgICAgPC9yZGY6U2VxPgogICAgICAgICA8L2RjOmNyZWF0b3I+CiAgICAgIDwvcmRmOkRlc2NyaXB0aW9uPgogICA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgoRraziAAAnFElEQVR4Ae19CYwc15ne39X3OQc5B4cSKZGSSIsWJa4piYoWsFYwbFhOtLZlSUvA2XU2gJ0giJMgGy+yyKEkQIwAi2wgZ7UJkQCL3XgdLLGJdZmW1rums5YoiuIhkTO8jxlySM599H1Wvq96qru6Z0gOqenpquJ7mJ7qrq6u995X73v//7//f++JqKQQUAgoBBQCCgGFgEJAIaAQUAgoBBQCCgGFgEJAIaAQUAgoBBQCCgGFgEJAIaAQUAgoBBQCCgGFgEJAIaAQUAgoBBQCCgGFgEJAIaAQUAgoBBQCCgGFgEJAIaAQUAgoBBQCCgGFgEJAIaAQUAgoBBQCCgGFgEJAIaAQUAgoBBQCCgGFgEJAIaAQUAgoBBQCCgGFgEJAIaAQUAgoBBQCCgGFgEJAIaAQUAgoBBQCCgGFgEJAIaAQUAgoBBQCCgGFgEJAIaAQUAgoBBQCCgGFgEJAIaAQUAgoBBQCCgGFgEJAIaAQUAgoBBQCCgGFgEJAIaAQUAg4EgGPI0tts0L/56eeCkdFNgY0bZN4PJ1lXd8puh70eDz6ahRV13U+x5ymaR8h77lcpXLhwuXLw39w5Up2NfJ3cx6KIHf4dNHyPcNf/3r/4dnZl/Pl8tcrun4/btWPl9enaZ7VBpZMLFYqZEoZ76+jPBfwef/1dPqdf3Xs2FF8rcgCEG43rfZzvN3y2fV6/5po6OWtHZ3/4uFYYvtDiYQMRKPiBy2Kui5onG0pt/kwIblEWygBSJKczOeP/PnFi3/5wcTEj3D6QlsK59BMTUwdWvzWF/vFF1/0ltaU1vi6fJu1svakx+fprxQrm1KzqefS6Wx0bnJe0tdnJDadkc9FErKrp0fifr8UKpXWF24ZOVCW+TVNpnI5+ZOzZ4cvdg785PEv7T5SKOaPzKanzh384Q9SuI09CruM+qz2JYogTYh/6e9/qTvRlejw+ryPQaffIR75HHrk9bhss0fzxHAO5kVVQrCn5qsMMsxNJ+XC8QtSPHNNvtzVA6L04qciJXzXHnnSWDEvyglVUP772XMyc9922fTYr856/f5TpWLhGgp4oFIpH/NK7uTIuYuzg/v3kjQqAYG7miBPvfhUeGDDwMZAINCne/TNXs37BDDZiVefLnq/1+v1Ga0ELZykMIlhnGv6B/IIrpepyVk5sf8TGZjIyK/19cv9sZhEIVFIonYThSRJFYvy+8ePS3rgAXlw569JYs06KZdLobfKGVRpAnW8hIoe1fXS+8Vc8Yok58/81f/9w2l81+7iNyG+Oh/vKoJ87Xe+1hvQApvEKzsgCe5D/78LEmAzoF6Dxx/UfGjlSDUy3EGTMCQMbvbxe4MycuCkPNrRKY91dctj3d0SBoFKbbJPzOZEdevc3Jz8/qnTEuzfKBu3PSm9G7egztCyKBHZZ+JYKZdo7Gfx6ZxUKicqHs8RKeTPV4q546O54dHBvXsL5j3dfHQrQXxf/sdfjsTCsXWQDg9WKpVdaLj340E+gtcG9PYdVI2YDKmAlnAz6WBceDv/cGufzyeDB0/KxV+ckIFgSPpDYXl2YJ1sgDFv5nUH/LudUtzwWgxHyw/Pn5e/ThckEu+SDduel/5ND4MUNEUWSmWQhVypmvs8q5fLBQyTjaF6x/RKZRTXH9ClPFjRCud+tucgWmR/6YaZOvSLaitxaOHNYj/zrWdCfd19G3S/oRY9ifNPgBCbcOzB8x7QoDuREKZkMBuo+ftWHWHHyEc/OyLJY5dkTTAgXjS2J9aulc92dUkUBPKxTK3K/Cb3pao1ls3I90+eEb2rzyDBxkeelJ57HwAjQIgbSTmDNJAxhqA1pAxzmcTrMiTQBRw/lLIczJVT13PJiyMH9u51/NCyIwny/Peej4f00Haf37cZDf9J2A8P4bFtwwOKgxgx07IyCdGWVojCkJSlUkl+8Wc/l675grDnZvqVNWuEQ8MxkKQjEDCKu9pEoTb5X0+ekkFPUPyBkPgCQbnvkV0SX9OP96EbksSoQf0f62hIGbQkg1eVcgrWWgqYn0CdRmF8vVcuFQaTqcypA3v/gLaMo5KjCLL7d3Zv14LaV9GivgCUt+PYQZ2fyZAKeCKrJR2MTJfxz+v3yvDJETn11iG5B2oWPN2QJB751d5eWRsKSQh2SQ+Oqy1NSNafjY7KjybnJNrRTZtDOmGT9N2/VULRhATCsWWTxAoDCYOuwegc8I/GP+8zC+VtBJkcLBRyb5z/+Y9+dunSpZz1d3Z977VrwazleuGfvbBpx7M7/rXm1/4jDOnnIeI34vsQJUO7pYS1nEu91yu6xLviMnL+qgSyRYMcJMksRpPuxQgX32cx/BoBUUic1UrMqQTD/ODUtPhIBpwo5rIS64RWivMaBvB8/sAdFqc64mcY/rgDSBPyaN4+3PNzGBj8+trNj+3s2/zw3OXBQxfxNQ0f2ybbE2T3v9z9eX/Q/0foiV8Cigk2OLtJiVs9XX/AL6lUVmYujUkMKhVTBqpXAKTog/Sg9z0HktAuWbUgFZARkSnyNxMwIUAQ9Pno4IuGehXp6JJSPmeoXSTKiiTUkYQBWXyaz/9QIBh5oXfDlu3jV0eOlPPpmRXJowU3qeonLbjxStzy5d99+TfhW/gLqFG7KiX4EfBAnZgwiiZ9G3olB5FnkpvAX0wmDWLwfR7XTOXzq1o9Dvn6kaNZJqpE6blJ4Eysy5JLz92RmnWzSjAvqnN4pqE192z6xmOf/zt/EYhGt9/sN+38zrYEob0BI/w/eLyeNWxgTk4kdmJNQiQahM1aJTl1dTrtJhACQqlBlScFqZLGa7UULZbBGEdDo2Xi50IuLaUCzAOQh1KkmMdAFM6vdCJRysUCfDAPPfqZp557DffvWOk8VuJ+tiTI1/7B13qhtb6KXmZDdWx+JaravnuwMQTDAQl3xSRvIQCb5fVstjbIxs+0TdrXHUDNQvlKhTyIUyUFCQMR0zLwKE0GNj/y9H3bn/7dlmXyKW5sS4KEO8MvaR7t8xXorG5JDENJ9HXBIIeEWOiR2QSnoVYh4taoJj8zXor2yMr32ctDkmRGfJZhtFNysJcvl4r4cWtKxPy8GAxY/+D272L07DeXV8rVu8p2BNn9T3b3iU9+23BGta7jWj2EF3JiQ+jq75KcpTcmUWisZ/EyjXNex3NtS8ifvbpJCKq38GO0QsuqVbE6xHxvtHvdxj986IEH/m7tCxu8sR1BPGHPr0N6POoG1cr6fGmHdPZ0SNmn1eaLsE+m9JiDWlXrn0EaShA7yc4yytfqpGnwB933mRjGuV57AanV+S33/nYjCEJi5SlID7uVa7l43vA6qovRRFS8sZCUQAAzGXZHoR73Z5AGvTjD5GukMS9uw5FlQCh8faSrRWWoAJOu/o2SK5Zj2Wz2+88998yWrfKo27JuK4KEI8GgrunxeBvuiEY24pMb6tBJWKkVE6JtimhO09MlmNaVsYLRQA3Ro5nLMSX1cYnq1sHMiZMQ6OFNhkdVOI4Ojf59G5WQoW8Q7b/aUOH3dSxCCGCUGYQ6MhWh7gpiw23ovd4nRN2rlN1K9IvPBp3yh52cQBKEKx0KwZcOgJkR0JuKEarYfbC/bHzBtF6QX/b+P+4pMYYxMLMhEELxjk0zNdmhJHvh3JaJDSuK4xH6VMpuU1I60qEOFrDhSs9RVKsTqBUBqlIlcbkWf+mSTBkCJ7Wq43w5B1TtF3bFYnp3RnwrpXRb87IcVq/7XFrIlZ/3I7NVQnRHkJ5Y/gEv3dvGzsmr7jJqUoAAAAASUVORK5CYII=" alt="PokeDiary" onerror="this.style.display='none'">
+      PokeDiary
+    </a>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('ja')">JA</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('zh')">ZH</button>
+    </div>
+  </div>
+</header>
+
+<div class="page-hero">
+  <h1>
+    <span data-lang="ja active">利用規約</span>
+    <span data-lang="en">Terms of Use</span>
+    <span data-lang="zh">使用条款</span>
+  </h1>
+  <div class="updated">
+    <span data-lang="ja active">最終更新日: 2026年2月24日</span>
+    <span data-lang="en">Last Updated: February 24, 2026</span>
+    <span data-lang="zh">最后更新日：2026年2月24日</span>
+  </div>
+</div>
+
+<div class="content-wrap">
+  <a href="index.html" class="back-link">
+    ← <span data-lang="ja active">サポートページに戻る</span>
+    <span data-lang="en">Back to Support</span>
+    <span data-lang="zh">返回支持页面</span>
+  </a>
+
+  <!-- ===== JAPANESE ===== -->
+  <div data-lang="ja active">
+    <div class="policy-card">
+      <h2>第1条（適用）</h2>
+      <p>この利用規約（以下「本規約」）は、本アプリ「Poke Diary」（以下「本アプリ」）の利用に関する条件を定めるものです。ユーザーは本規約に同意した上で本アプリを利用するものとします。</p>
+    </div>
+    <div class="policy-card">
+      <h2>第2条（利用条件）</h2>
+      <p>本アプリは、ポケモンカードゲームの対戦記録を個人的に管理するためのツールです。商業目的での使用は想定しておりません。</p>
+    </div>
+    <div class="policy-card">
+      <h2>第3条（禁止事項）</h2>
+      <p>ユーザーは以下の行為を行ってはなりません：
+・本アプリの改ざん、リバースエンジニアリング
+・本アプリを利用した違法行為
+・他のユーザーまたは第三者の権利を侵害する行為
+・本アプリの運営を妨害する行為</p>
+    </div>
+    <div class="policy-card">
+      <h2>第4条（免責事項）</h2>
+      <p>・本アプリの利用により生じた損害について、開発者は一切の責任を負いません。
+・データの破損や消失について、開発者は一切の責任を負いません。
+・本アプリは「現状のまま」提供されるものであり、特定の目的への適合性の保証は行いません。</p>
+    </div>
+    <div class="policy-card">
+      <h2>第5条（データについて）</h2>
+      <p>本アプリで作成されたデータはすべてユーザーのデバイスに保存されます。アプリの削除やデバイスの初期化によりデータが失われる場合があります。データのバックアップはユーザーの責任で行ってください。</p>
+    </div>
+    <div class="policy-card">
+      <h2>第6条（知的財産権）</h2>
+      <p>本アプリはファンメイドアプリであり、ポケモンに関する一切の知的財産権は、各権利者に帰属します。本アプリはこれらの権利を侵害する意図は一切ありません。</p>
+    </div>
+    <div class="policy-card">
+      <h2>第7条（広告の表示）</h2>
+      <p>本アプリでは、運営費用を補うために広告が表示される場合があります。広告の内容については、広告配信事業者の責任により管理されています。</p>
+    </div>
+    <div class="policy-card">
+      <h2>第8条（規約の変更）</h2>
+      <p>開発者は、必要に応じて本規約を変更できるものとします。変更後の利用規約はアプリ内に掲示された時点で効力を有します。</p>
+    </div>
+    <div class="rights-card">
+      <h2>権利表記</h2>
+      <p>ポケットモンスター・ポケモン・Pokémonは任天堂、クリーチャーズ、ゲームフリークの登録商標です。</p>
+      <p>当アプリはファンアプリであり、任天堂、クリーチャーズ、ゲームフリーク、および株式会社ポケモンとは一切関係ありません。</p>
+      <p>本アプリはポケモン関連の権利者の権利を侵害する意図はありません。</p>
+    </div>
+  </div>
+
+  <!-- ===== ENGLISH ===== -->
+  <div data-lang="en">
+    <div class="policy-card">
+      <h2>Article 1 (Application)</h2>
+      <p>These Terms of Use ("Terms") govern the use of this app "Poke Diary" ("the App"). By using the App, you agree to these Terms.</p>
+    </div>
+    <div class="policy-card">
+      <h2>Article 2 (Usage Conditions)</h2>
+      <p>This App is a personal tool for managing Pokémon Trading Card Game battle records. It is not intended for commercial use.</p>
+    </div>
+    <div class="policy-card">
+      <h2>Article 3 (Prohibited Activities)</h2>
+      <p>Users must not engage in the following activities:
+· Tampering with or reverse engineering this App
+· Using this App for illegal activities
+· Infringing on the rights of other users or third parties
+· Interfering with the operation of this App</p>
+    </div>
+    <div class="policy-card">
+      <h2>Article 4 (Disclaimer)</h2>
+      <p>· The developer is not liable for any damages arising from the use of this App.
+· The developer is not liable for any data corruption or loss.
+· This App is provided "as is" without warranty of fitness for any particular purpose.</p>
+    </div>
+    <div class="policy-card">
+      <h2>Article 5 (Data)</h2>
+      <p>All data created in this App is stored on the user's device. Data may be lost if the App is deleted or the device is reset. Users are responsible for backing up their data.</p>
+    </div>
+    <div class="policy-card">
+      <h2>Article 6 (Intellectual Property)</h2>
+      <p>This App is a fan-made application. All intellectual property rights related to Pokémon belong to the respective rights holders. This App has no intention of infringing on these rights.</p>
+    </div>
+    <div class="policy-card">
+      <h2>Article 7 (Advertisements)</h2>
+      <p>This App may display advertisements to offset operating costs. Advertisement content is managed by the respective advertising service providers.</p>
+    </div>
+    <div class="policy-card">
+      <h2>Article 8 (Changes to Terms)</h2>
+      <p>The developer may change these Terms as necessary. Updated Terms take effect when posted within the App.</p>
+    </div>
+    <div class="rights-card">
+      <h2>Rights Notice</h2>
+      <p>Pocket Monsters, Pokémon, and related trademarks are registered trademarks of Nintendo, Creatures Inc., and GAME FREAK inc.</p>
+      <p>This App is a fan application and is not affiliated with Nintendo, Creatures Inc., GAME FREAK inc., or The Pokémon Company.</p>
+      <p>This App has no intention of infringing on the rights of Pokémon rights holders.</p>
+    </div>
+  </div>
+
+  <!-- ===== CHINESE ===== -->
+  <div data-lang="zh">
+    <div class="policy-card">
+      <h2>第1条（适用）</h2>
+      <p>本使用条款（以下简称"本条款"）规定了本应用"Poke Diary"（以下简称"本应用"）的使用条件。用户同意本条款后方可使用本应用。</p>
+    </div>
+    <div class="policy-card">
+      <h2>第2条（使用条件）</h2>
+      <p>本应用是个人管理宝可梦卡牌对战记录的工具，不适用于商业目的。</p>
+    </div>
+    <div class="policy-card">
+      <h2>第3条（禁止事项）</h2>
+      <p>用户不得进行以下行为：
+・对本应用进行篡改、逆向工程
+・利用本应用从事违法行为
+・侵害其他用户或第三方权利的行为
+・妨碍本应用运营的行为</p>
+    </div>
+    <div class="policy-card">
+      <h2>第4条（免责声明）</h2>
+      <p>・因使用本应用产生的损失，开发者概不负责。
+・因数据损坏或丢失，开发者概不负责。
+・本应用按"现状"提供，不保证适合特定用途。</p>
+    </div>
+    <div class="policy-card">
+      <h2>第5条（关于数据）</h2>
+      <p>本应用创建的所有数据均保存在用户设备上。删除应用或初始化设备可能导致数据丢失，请用户自行负责数据备份。</p>
+    </div>
+    <div class="policy-card">
+      <h2>第6条（知识产权）</h2>
+      <p>本应用为粉丝制作应用，与宝可梦相关的一切知识产权归各权利人所有。本应用无意侵害任何相关权利。</p>
+    </div>
+    <div class="policy-card">
+      <h2>第7条（广告展示）</h2>
+      <p>本应用可能展示广告以补贴运营费用。广告内容由广告服务提供商负责管理。</p>
+    </div>
+    <div class="policy-card">
+      <h2>第8条（条款变更）</h2>
+      <p>开发者可根据需要修改本条款。变更后的条款自公示于应用内时起生效。</p>
+    </div>
+    <div class="rights-card">
+      <h2>权利声明</h2>
+      <p>宝可梦・Pokemon・Pokémon 是任天堂、Creatures、Game Freak 的注册商标。</p>
+      <p>本应用为粉丝应用，与任天堂、Creatures、Game Freak 及株式会社宝可梦无任何关系。</p>
+      <p>本应用无意侵害宝可梦相关权利人的权利。</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html">Support</a>
+  <a href="privacy.html">Privacy Policy / プライバシーポリシー / 隐私政策</a>
+  <div style="margin-top:8px;">© 2026 空想ポケット. All rights reserved.</div>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      const langs = el.getAttribute('data-lang').replace(' active','').split(' ');
+      el.classList.toggle('active', langs.includes(lang));
+    });
+    document.documentElement.lang = lang;
+    localStorage.setItem('poke-lang', lang);
+  }
+  (function() {
+    const saved = localStorage.getItem('poke-lang');
+    if (saved && saved !== 'ja') {
+      const btn = [...document.querySelectorAll('.lang-btn')].find(b => b.textContent === saved.toUpperCase());
+      if (btn) btn.click();
+    }
+  })();
+</script>
+</body>
+</html>
