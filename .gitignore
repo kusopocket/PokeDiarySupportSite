@@ -9,8 +9,7 @@
 .claude/
 .agents/
 .superpowers/
-.aidesigner/*
-!.aidesigner/.gitkeep
+.aidesigner/
 .mcp.json
 
 # Editor / IDE
