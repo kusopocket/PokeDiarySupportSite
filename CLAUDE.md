@@ -19,7 +19,7 @@ python3 -m http.server 8000
 - `index.html` — メインのランディングページ（機能紹介・App Storeリンク）
 - `privacy.html` — プライバシーポリシー
 - `terms.html` — 利用規約
-- `app-ads.txt` — Google AdMob設定（Publisher IDのプレースホルダーあり）
+- `app-ads.txt` — Google AdMob設定（`pub-2032061255668137` で設定済み）
 - `assets/` — ロゴ画像・App Storeバッジ（JP/US-UK/中国向け）
 - `docs/superpowers/specs/` — デザインスペック
 - `docs/superpowers/plans/` — 実装プラン
@@ -54,10 +54,11 @@ python3 -m http.server 8000
 **主要コンポーネント:**
 - `.hero-inner` — スプリットヒーロー（左: テキスト+CTA / 右: フォンモックアップ）
 - `.features-grid` — アルバム風3×2グリッド（最初タイルは `.highlight` クラスで赤背景）
-- `.feature-tile` / `.feature-label` — グリッドタイル（ラベルは `display: inline` ルール必須）
+- `.feature-tile` / `.feature-label` / `.feature-desc` — グリッドタイル（SVGアイコン＋ラベル＋説明文、ラベル・説明は `display: inline` ルール必須）
 - `.section-header` — セクションタイトル + グラデーションライン
-- `header` — `backdrop-filter: blur(12px)` の半透明ヘッダー
+- `header` — `backdrop-filter: blur(12px)` の半透明ヘッダー（ロゴ: `assets/logo.png`）
 - `.footer-logo` — フッター先頭のブランドロゴ（accent色）
+- `.phone-frame` / `.phone-screen` — ヒーロー右側のフォンモックアップ（`assets/logo.png` を表示）
 
 **レスポンシブ:**
 - `@media (max-width: 600px)` — `.hero-inner` を縦並び（`flex-direction: column`）
@@ -67,11 +68,28 @@ python3 -m http.server 8000
 ```css
 [data-lang] { display: none; }
 [data-lang].active { display: block; }
-.feature-label [data-lang].active { display: inline; } /* インライン要素用 */
+.feature-label [data-lang].active { display: inline; }  /* インライン要素用 */
+.feature-desc [data-lang].active { display: inline; }   /* 説明文インライン用 */
+.badge-link[data-lang].active { display: inline-block; } /* App Storeバッジ用 */
 ```
+
+**言語初期化（JS）:**
+```js
+// ページ読み込み時に setLang() を必ず呼ぶ（JA でも active クラスを付与）
+setLang(localStorage.getItem('poke-lang') || 'ja');
+```
+- `event.target` に依存しない設計。ボタン・コンテンツ・ナビを一括切替。
+
+## 外部サービス連携
+
+| サービス | 設定値 |
+|---------|-------|
+| App Store URL | `https://apps.apple.com/jp/app/pokediary/id6762084071` |
+| AdMob Publisher ID | `pub-2032061255668137` |
+| AdMob 認証トークン | `f08c47fec0942fa0` |
 
 ## 注意事項
 
-- `app-ads.txt` のAdMob Publisher IDは `pub-XXXXXXXXXXXXXXXX` のプレースホルダーのまま。本番公開前に実際のIDへ置き換えること。
 - 全ページで共通のヘッダー/フッター構造を持つが、共通コンポーネント化はされていない（各HTMLに直書き）。変更時は3ファイル全て更新すること。
 - デザイントークン（CSS変数）はすべての `.html` ファイルにそれぞれ `:root` ブロックとして記述されている。変更時は3ファイル全て同期すること。
+- ロゴ画像は `assets/logo.png` を参照。base64インライン埋め込みは禁止（ファイルサイズ肥大化のため）。
