@@ -304,16 +304,16 @@
     <div class="policy-card">
       <h2>Article 3 (Prohibited Activities)</h2>
       <p>Users must not engage in the following activities:
-· Tampering with or reverse engineering this App
-· Using this App for illegal activities
-· Infringing on the rights of other users or third parties
-· Interfering with the operation of this App</p>
+・Tampering with or reverse engineering this App
+・Using this App for illegal activities
+・Infringing on the rights of other users or third parties
+・Interfering with the operation of this App</p>
     </div>
     <div class="policy-card">
       <h2>Article 4 (Disclaimer)</h2>
-      <p>· The developer is not liable for any damages arising from the use of this App.
-· The developer is not liable for any data corruption or loss.
-· This App is provided "as is" without warranty of fitness for any particular purpose.</p>
+      <p>・The developer is not liable for any damages arising from the use of this App.
+・The developer is not liable for any data corruption or loss.
+・This App is provided "as is" without warranty of fitness for any particular purpose.</p>
     </div>
     <div class="policy-card">
       <h2>Article 5 (Data)</h2>
@@ -381,7 +381,7 @@
     </div>
     <div class="rights-card">
       <h2>权利声明</h2>
-      <p>宝可梦・Pokemon・Pokémon 是任天堂、Creatures、Game Freak 的注册商标。</p>
+      <p>宝可梦·Pokemon·Pokémon是任天堂、Creatures、Game Freak的注册商标。</p>
       <p>本应用为粉丝应用，与任天堂、Creatures、Game Freak 及株式会社宝可梦无任何关系。</p>
       <p>本应用无意侵害宝可梦相关权利人的权利。</p>
     </div>
@@ -396,8 +396,9 @@
 
 <script>
   function setLang(lang) {
-    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+    });
     document.querySelectorAll('[data-lang]').forEach(el => {
       const langs = el.getAttribute('data-lang').replace(' active','').split(' ');
       el.classList.toggle('active', langs.includes(lang));
@@ -405,13 +406,7 @@
     document.documentElement.lang = lang;
     localStorage.setItem('poke-lang', lang);
   }
-  (function() {
-    const saved = localStorage.getItem('poke-lang');
-    if (saved && saved !== 'ja') {
-      const btn = [...document.querySelectorAll('.lang-btn')].find(b => b.textContent === saved.toUpperCase());
-      if (btn) btn.click();
-    }
-  })();
+  setLang(localStorage.getItem('poke-lang') || 'ja');
 </script>
 </body>
 </html>
