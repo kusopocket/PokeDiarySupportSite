@@ -1,6 +1,1 @@
-# app-ads.txt for PokeDiary
-# AdMobのパブリッシャーIDを以下に入力してください
-# Replace pub-XXXXXXXXXXXXXXXX with your actual AdMob Publisher ID
-# (AdMob コンソール → アカウント → アカウント情報 → パブリッシャーID)
-
-google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+google.com, pub-2032061255668137, DIRECT, f08c47fec0942fa0
